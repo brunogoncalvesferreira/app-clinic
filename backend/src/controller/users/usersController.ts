@@ -5,7 +5,7 @@ import { hash } from "bcrypt"
 export class UsersController {
   async create(req: Request, res: Response) {
     try {
-      const { name, email, password, phone }  = req.body
+      const { name, email, phone, password }  = req.body
 
       const userAlreadyExists = await prisma.users.findUnique({
         where: {
@@ -23,14 +23,13 @@ export class UsersController {
         data: {
           name,
           email,
-          password: hashPassword,
           phone,
+          password: hashPassword,
         }
       })
 
       return res.status(201).json('Usuário criado com sucesso!')
     } catch (error) {
-      console.log(error)
       return res.status(400).json(error)
     }
   }
@@ -45,7 +44,6 @@ export class UsersController {
 
       return res.status(200).json(users)
     } catch (error) {
-      console.log(error)
       return res.status(400).json(error)
     }
   }
@@ -69,7 +67,6 @@ export class UsersController {
       return res.status(200).json(user)
 
     } catch (error) {
-      console.log(error)
       return res.status(400).json(error)
     }
   }
@@ -105,7 +102,6 @@ export class UsersController {
       return res.status(200).json(consult)
 
     } catch (error) {
-      console.log(error)
       return res.status(400).json(error)
     }
   }
@@ -124,7 +120,6 @@ export class UsersController {
 
       return res.status(200).json('Usuário deletado com sucesso!')
     } catch (error) {
-      console.log(error)
       return res.status(400).json(error)
     }
   }

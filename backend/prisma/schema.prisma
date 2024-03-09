@@ -25,13 +25,12 @@ model Users {
 }
 
 model Doctor {
-  id              String    @id @default(uuid())
-  name            String
-  specialty       String
-  available_hours DateTime?
-  created_at      DateTime  @default(now())
-  updated_at      DateTime  @default(now())
-  consult         Consult[]
+  id         String    @id @default(uuid())
+  name       String
+  specialty  String
+  created_at DateTime  @default(now())
+  updated_at DateTime  @default(now())
+  consult    Consult[]
 
   @@map("doctor")
 }

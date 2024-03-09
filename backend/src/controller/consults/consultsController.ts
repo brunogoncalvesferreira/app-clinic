@@ -13,7 +13,6 @@ export class ConsultsController {
 
       return res.status(200).json(consults)
     } catch (error) {
-      console.log(error)
       return res.status(400).json(error)
     }
   }
@@ -30,7 +29,6 @@ export class ConsultsController {
       await prisma.consult.delete({ where: { id } })
       return res.status(200).json('Consulta deletada com sucesso!')
     } catch (error) {
-      console.log(error) 
       return res.status(400).json(error)
     }
   }

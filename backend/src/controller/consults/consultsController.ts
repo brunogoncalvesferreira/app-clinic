@@ -29,6 +29,9 @@ export class ConsultsController {
         include: {
           doctor_id: true,
           user_id: true
+        },
+        orderBy: {
+          created_at: 'desc'
         }
       })
 

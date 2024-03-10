@@ -44,6 +44,8 @@ model Consult {
   date_consult DateTime
   status       String   @default("em aberto")
   comments     String
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now())
 
   @@map("consult")
 }

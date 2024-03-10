@@ -11,8 +11,8 @@ export function Sidebar() {
 
   return (
     <div>
-      <div className="h-16 flex items-center justify-center border-b">
-        <strong>Logo da clínica</strong>
+      <div className="h-16 flex justify-center items-center border-b">
+        <strong className="font-semibold">Easy Health</strong>
       </div>
 
       <div className="flex flex-col h-full">

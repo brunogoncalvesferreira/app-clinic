@@ -50,7 +50,7 @@ export class UsersController {
 
   async show(req: Request, res: Response) {
     try {
-      const { id } = req.params 
+      const { id } = req.params
 
       const user = await prisma.users.findUnique({
         where: { id },
@@ -65,41 +65,6 @@ export class UsersController {
       }
 
       return res.status(200).json(user)
-
-    } catch (error) {
-      return res.status(400).json(error)
-    }
-  }
-
-  async update(req: Request, res: Response) {
-    try {
-      const { id } = req.params
-      const { date_consult, comments, status, doctor_id } = req.body
-
-      const user = await prisma.users.findUnique({ where: { id } })
-
-      if(!user) {
-        return res.status(404).json('Usuário não encontrado!')
-      }
-
-      const consult = await prisma.users.update({
-        where: {
-          id
-        },
-
-        data: {
-          consult: {
-            create: {
-              date_consult,
-              comments,
-              status,
-              doctorId: doctor_id
-            }
-          }
-        }
-      })
-
-      return res.status(200).json(consult)
 
     } catch (error) {
       return res.status(400).json(error)

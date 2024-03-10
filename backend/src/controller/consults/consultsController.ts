@@ -2,6 +2,27 @@ import { Request, Response } from "express";
 import { prisma } from "../../database/prisma";
 
 export class ConsultsController {
+  async create(req: Request, res: Response) {
+    try {
+      const user_id  = req.user_id
+      const { date_consult, comments, doctorId } = req.body
+
+      const consult = await prisma.consult.create({
+        data: {
+          usersId: user_id,
+          doctorId,
+          date_consult,
+          comments
+        }
+      })
+
+      return res.status(201).json(consult)
+
+    } catch (error) {
+      console.log(error)
+      return res.status(400).json(error)
+    }
+  }
   async index(req: Request, res: Response) {
     try {
       const consults = await prisma.consult.findMany({

@@ -42,7 +42,7 @@ model Consult {
   usersId      String?
   doctorId     String?
   date_consult DateTime
-  status       String
+  status       String   @default("em aberto")
   comments     String
 
   @@map("consult")

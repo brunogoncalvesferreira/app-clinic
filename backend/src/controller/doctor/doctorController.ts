@@ -7,18 +7,6 @@ export class DoctorController {
     try {
       const { name, specialty,  } = req.body;
 
-      const hours = [
-        '08:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-      ]
-
     await prisma.doctor.create({
       data:{
         name,
@@ -34,7 +22,11 @@ export class DoctorController {
 
   async index(req: Request, res: Response) {
     try {
-      const doctors = await prisma.doctor.findMany()
+      const doctors = await prisma.doctor.findMany({
+        orderBy: {
+          created_at: 'desc'
+        }
+      })
 
       return res.status(200).json(doctors)
     } catch (error) {

@@ -17,7 +17,6 @@ const sessionsController = new SessionsController()
 routes.post('/users', createUser.create)
 routes.get('/users', ensureAuthenticate, createUser.index)
 routes.get('/users/:id', createUser.show)
-routes.put('/users/:id', ensureAuthenticate, createUser.update)
 routes.delete('/users/:id', ensureAuthenticate, createUser.delete)
 
 // Rotas Doutores
@@ -25,6 +24,7 @@ routes.post('/doctor', ensureAuthenticate, createDoctor.create)
 routes.get('/doctor', ensureAuthenticate, createDoctor.index)
 
 // Rotas Consultas
+routes.post('/consults', ensureAuthenticate, consult.create)
 routes.get('/consults', ensureAuthenticate, consult.index)
 routes.delete('/consults/:id', ensureAuthenticate, consult.delete)
 

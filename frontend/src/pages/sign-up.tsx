@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { FormEvent, useState } from 'react'
-import { api } from '@/services/axios'
+import { api } from '@/lib/axios'
 import { toast } from 'sonner'
 
 export function SignUp() {

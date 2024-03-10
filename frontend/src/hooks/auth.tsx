@@ -1,25 +1,7 @@
-import { api } from '@/services/axios'
+import { api } from '@/lib/axios'
+import { SignInProps, UserProps } from '@/types/types'
 import { createContext, useEffect, useState } from 'react'
 import { toast } from 'sonner'
-
-interface SignInProps {
-  email: string
-  password: string
-}
-
-interface UserProps {
-  user: {
-    id: string
-    name: string
-    email: string
-    password: string
-    phone: string
-    role: string
-    created_at: Date
-    updated_at: Date
-  }
-  token: string
-}
 
 interface AuthContextProps {
   signIn: ({ email, password }: SignInProps) => Promise<void>

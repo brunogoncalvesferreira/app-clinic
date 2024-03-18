@@ -66,22 +66,24 @@ export function SignUp() {
           </div>
 
           <div className="space-y-2">
+            <label className=" text-gray-600 font-semibold">Telefone</label>
+            <Input
+              type="tel"
+              placeholder="(00) 00000-0000"
+              onChange={(e) => setPhone(e.target.value)}
+              value={phone}
+              autoComplete="tel"
+            />
+          </div>
+
+          <div className="space-y-2">
             <label className=" text-gray-600 font-semibold">E-mail</label>
             <Input
               type="email"
               placeholder="m@example.com"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
-            />
-          </div>
-
-          <div className="space-y-2">
-            <label className=" text-gray-600 font-semibold">Telefone</label>
-            <Input
-              type="text"
-              placeholder="(00) 00000-0000"
-              onChange={(e) => setPhone(e.target.value)}
-              value={phone}
+              autoComplete="email"
             />
           </div>
 
@@ -91,8 +93,7 @@ export function SignUp() {
               type="password"
               placeholder="******"
               onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              autoComplete="tel"
+              autoComplete="current-password"
             />
           </div>
 

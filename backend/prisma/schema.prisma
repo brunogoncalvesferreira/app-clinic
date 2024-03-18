@@ -25,14 +25,25 @@ model Users {
 }
 
 model Doctor {
-  id         String    @id @default(uuid())
-  name       String
-  specialty  String
-  created_at DateTime  @default(now())
-  updated_at DateTime  @default(now())
-  consult    Consult[]
+  id              String    @id @default(uuid())
+  name            String
+  specialty       String
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @default(now())
+  consult         Consult[]
+  hours_available Hours[]
 
   @@map("doctor")
+}
+
+model Hours {
+  id         String  @id @default(uuid())
+  start_time String
+  end_time   String
+  Doctor     Doctor? @relation(fields: [doctorId], references: [id])
+  doctorId   String?
+
+  @@map("hours")
 }
 
 model Consult {
@@ -41,6 +52,7 @@ model Consult {
   doctor_id    Doctor?  @relation(fields: [doctorId], references: [id])
   usersId      String?
   doctorId     String?
+  hours        String
   date_consult DateTime
   status       String   @default("em aberto")
   comments     String

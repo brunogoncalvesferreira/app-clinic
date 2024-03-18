@@ -18,6 +18,7 @@ import { useNavigate } from 'react-router-dom'
 export function ScheduleAppointment() {
   const [doctor, setDoctor] = useState<DoctorProps[]>([])
   const [date, setDate] = useState('')
+  const [hours, setHours] = useState('')
   const [comments, setComments] = useState('')
   const [doctorId, setDoctorId] = useState('')
 
@@ -33,6 +34,7 @@ export function ScheduleAppointment() {
     await api
       .post('/consults', {
         date_consult: new Date(date),
+        hours,
         comments,
         doctorId,
         userId: userData?.user.id,
@@ -86,6 +88,11 @@ export function ScheduleAppointment() {
                 type="date"
                 onChange={(e) => setDate(e.target.value)}
               />
+            </div>
+
+            <div>
+              <label htmlFor="hours">Hora</label>
+              <Input type="text" onChange={(e) => setHours(e.target.value)} />
             </div>
 
             <div className="flex flex-col">

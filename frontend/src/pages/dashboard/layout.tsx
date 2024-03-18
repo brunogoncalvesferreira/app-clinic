@@ -38,6 +38,7 @@ export function DashboardLayout() {
                   <TableHead>Paciente</TableHead>
                   <TableHead>Médico</TableHead>
                   <TableHead>Data</TableHead>
+                  <TableHead>Hora</TableHead>
                   <TableHead>Status</TableHead>
                 </TableRow>
               </TableHeader>
@@ -47,6 +48,7 @@ export function DashboardLayout() {
                     <TableCell>{consult.user_id?.name}</TableCell>
                     <TableCell>{consult.doctor_id?.name}</TableCell>
                     <TableCell>{formmatedDate(consult.date_consult)}</TableCell>
+                    <TableCell>{consult.hours}</TableCell>
                     <TableCell>{consult.status}</TableCell>
                   </TableRow>
                 ))}

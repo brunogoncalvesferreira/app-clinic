@@ -45,6 +45,7 @@ export function SignIn() {
               placeholder="m@example.com"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
+              autoComplete="email"
             />
           </div>
 
@@ -59,7 +60,7 @@ export function SignIn() {
               type="password"
               placeholder="******"
               onChange={(e) => setPassword(e.target.value)}
-              value={password}
+              autoComplete="current-password"
             />
           </div>
 

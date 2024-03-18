@@ -30,6 +30,7 @@ export interface ConsultProps {
   date: string
   comments: string
   date_consult: string
+  hours: string
   status: string
   doctorId?: string
   created_at?: Date
